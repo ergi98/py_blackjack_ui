@@ -13,14 +13,7 @@ class MainWindow(QMainWindow):
     super(MainWindow, self).__init__(*args, **kwargs)
     self.setWindowTitle('BLACKJACK')
     self.setMinimumSize(1050, 650)
-    # Initially blur the background
-    self.set_game_background()
-    self.show_initial_screen()
-    
-  def set_game_background(self):
-    self.game_background = GameBackground(self, 15)
-    
-  def show_initial_screen(self):
+    self.game_background = GameBackground(self, blur_amount=15)
     self.initial_screen = InitialScreen(self.on_start_game_click)
     self.setCentralWidget(self.initial_screen)
 
